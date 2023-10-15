@@ -1,0 +1,30 @@
+<div class="table-container">
+<table class="table table-bordered fixed-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <tr >
+            <td>{{datas?.id}}</td>
+            <td>{{datas?.name}}</td>
+            <td>{{datas?.brand}}</td>
+            <td>{{datas?.color}}</td>
+            <td>{{datas?.price}}</td>
+            <td><img src="{{datas?.img}}"/></td>
+            <td *ngIf="datas?.status=='available'" ><span class="success">{{datas?.status}}</span></td>
+            <td *ngIf="datas?.status=='out of stock'" ><span class="danger">{{datas?.status}}</span></td>
+            <td><button class="btn btn-outline-primary" (click)="editButton()">Edit</button> 
+                <button class="btn btn-outline-danger" (click)="deleteButton()">Delete</button></td>
+        </tr>
+    </tbody>
+  </table>
+</div>

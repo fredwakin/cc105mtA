@@ -1,0 +1,61 @@
+<h3 class="font-weight-bold" *ngIf="editmode==false">NEW PRODUCT</h3>
+<h3 class="font-weight-bold" *ngIf="editmode==true">Edit Product</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group">
+        <label class="font-weight-bold">Name</label>
+        <input
+            type="text"
+            class="form-control"
+            placeholder="name"
+            formControlName="name"
+        />
+    </div>
+    <div class="form-group">
+        <label for="status">Brand</label>
+        <select class="form-control" id="stats" formControlName="brand">
+          <option *ngFor="let br of brands" [value]="br.brand">{{br.brand}}</option>
+        </select>
+      </div>
+
+    <div class="form-group">
+        <label class="font-weight-bold">Color</label>
+        <input
+            type="text"
+            class="form-control"
+            placeholder="color"
+            formControlName="color"
+        />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold">Price</label>
+        <input
+            type="text"
+            class="form-control"
+            placeholder="Price"
+            formControlName="price"
+        />
+    </div>
+
+    <div class="form-group">
+        <label class="font-weight-bold">Image</label>
+        <input
+            type="text"
+            class="form-control"
+            placeholder="img address"
+            formControlName="img"
+        />
+            <img src="{{form.value.img}}" class="img-responsive"/>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" id="stats" formControlName="status">
+          <option *ngFor="let st of stats" [value]="st.status">{{st.status}}</option>
+        </select>
+      </div>
+
+    <button type="submit" class="btn-btn-primary font-weight-bold" [disabled]="form.invalid">Save</button>
+    <button type="reset" class="btn btn-danger font-weight-bold">Clear</button>
+</form>
